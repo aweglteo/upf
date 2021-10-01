@@ -9,25 +9,25 @@
 #include "utlt_debug.h"
 #include "utlt_pool.h"
 
-#define MAX_NUM_OF_BUFBLK_POOL       256
+#define MAX_NUM_OF_BUFBLK_POOL       256*32*2
 
-#define MAX_NUM_OF_BUFBLK_POOL_64    128
-#define MAX_NUM_OF_BUFBLK_POOL_128   128
-#define MAX_NUM_OF_BUFBLK_POOL_256   128
-#define MAX_NUM_OF_BUFBLK_POOL_512   64
-#define MAX_NUM_OF_BUFBLK_POOL_1024  64
-#define MAX_NUM_OF_BUFBLK_POOL_2048  32
+#define MAX_NUM_OF_BUFBLK_POOL_64    128*64*2
+#define MAX_NUM_OF_BUFBLK_POOL_128   128*16*2
+#define MAX_NUM_OF_BUFBLK_POOL_256   128*8*2
+#define MAX_NUM_OF_BUFBLK_POOL_512   64*8*2
+#define MAX_NUM_OF_BUFBLK_POOL_1024  64*4*2
+#define MAX_NUM_OF_BUFBLK_POOL_2048  32*2
 #define MAX_NUM_OF_BUFBLK_POOL_4096  32
 #define MAX_NUM_OF_BUFBLK_POOL_8192  16
 #define MAX_NUM_OF_BUFBLK_POOL_16384 8
 #define MAX_NUM_OF_BUFBLK_POOL_32768 8
-#define MAX_NUM_OF_BUFBLK_POOL_65536 4
+#define MAX_NUM_OF_BUFBLK_POOL_65536 8
 
-#define SIZE_OF_BUF_RESERVED     4
-#define SIZE_OF_BUF_64           64
-#define SIZE_OF_BUF_128          128
-#define SIZE_OF_BUF_256          256
-#define SIZE_OF_BUF_512          512
+#define SIZE_OF_BUF_RESERVED     12
+#define SIZE_OF_BUF_64           4096
+#define SIZE_OF_BUF_128          4096
+#define SIZE_OF_BUF_256          4096
+#define SIZE_OF_BUF_512          4096
 #define SIZE_OF_BUF_1024         1024
 #define SIZE_OF_BUF_2048         2048
 #define SIZE_OF_BUF_4096         4096

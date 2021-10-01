@@ -3,6 +3,7 @@
 #include <endian.h>
 #include <arpa/inet.h>
 #include <net/if.h>
+#include <unistd.h>
 
 #include "utlt_list.h"
 #include "utlt_network.h"

@@ -58,6 +58,8 @@ void UpfDispatcher(const Event *event) {
 
         status = PfcpParseMessage(pfcpMessage, recvBufBlk);
         UTLT_Assert(status == STATUS_OK, goto freeBuf, "PfcpParseMessage error");
+	
+	UTLT_Info("[PFCP] Handle N4 Message");
 
         if (pfcpMessage->header.seidP) {
 
