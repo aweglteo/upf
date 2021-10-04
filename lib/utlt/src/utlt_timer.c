@@ -62,14 +62,14 @@ void TimerListInit(TimerList *tmList) {
 
 // Check expire time and update active and idle list
 Status TimerExpireCheck(TimerList *tmList, uintptr_t data) {
-    pthread_mutex_lock(&tmList->lock);
     uint32_t curTime = TimeMsec(TimeNow());
     TimerBlk *tm = ListFirst(&(tmList->active));
 
     while (tm != (TimerBlk *)&tmList->active) {
         if (tm->expireTime < curTime) {
             tm->expireFunc(data, tm->param);
-            
+            pthread_mutex_lock(&tmList->lock);
+
             if (tm->isRunning) {
                 ListRemove(tm);
 
@@ -84,11 +84,11 @@ Status TimerExpireCheck(TimerList *tmList, uintptr_t data) {
                 }
             }
             tm = ListFirst(&(tmList->active));
+            pthread_mutex_unlock(&tmList->lock);
         } else {
             break;
         }
     }
-    pthread_mutex_unlock(&tmList->lock);
     return STATUS_OK;
 }
 
